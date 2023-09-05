@@ -23,8 +23,10 @@ public class UniversidadULP {
         con.conectar();
         
         try {
-            String sql = "INSERT INTO alumno (dni,apellido,nombre,fechaNacimiento,estado) "
-                    + "VALUES (37555630,'Pippig','Agustin','1994-01-11',true)";
+            /*String sql = "INSERT INTO alumno (dni,apellido,nombre,fechaNacimiento,estado) "
+                    + "VALUES (37555630,'Pippig','Agustin','1994-01-11',true)";*/
+            
+            String sql = "INSERT INTO materia (nombre,año,estado) VALUES ('Matematica',1,true),('Lengua',1,true)";
             
             PreparedStatement ps = con.conectar().prepareStatement(sql);
             
