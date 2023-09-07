@@ -40,11 +40,11 @@ public class Conexion {
         return cx;
     }
 
-    public static void desconectar() {
+    /*public static void desconectar() {
         try {
             cx.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo desconectar" + ex.getMessage());
         }
-    }
+    }*/
 }
