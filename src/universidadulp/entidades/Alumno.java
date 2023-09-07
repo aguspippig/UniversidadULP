@@ -12,7 +12,7 @@ import java.time.LocalDate;
  */
 public class Alumno {
     
-    private int idAlumno;
+    private int idAlumno, dni;
     private String apellido, nombre;
     private LocalDate fechaNacimiento;
     private boolean estado;

@@ -40,7 +40,7 @@ public class Conexion {
         return cx;
     }
 
-    public void desconectar() {
+    public static void desconectar() {
         try {
             cx.close();
         } catch (SQLException ex) {
