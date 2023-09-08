@@ -180,6 +180,8 @@ public class InscripcionData {
             if(registro == 1){
                 JOptionPane.showMessageDialog(null, "Inscripcion borrada.");
             }
+            
+            ps.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Inscripcion." + ex.getMessage());
         }
@@ -200,6 +202,8 @@ public class InscripcionData {
             if(registro == 1){
                 JOptionPane.showMessageDialog(null,"Nota actualizada.");
             }
+            
+            ps.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Inscripcion." + ex.getMessage());
         }
@@ -225,6 +229,7 @@ public class InscripcionData {
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre(rs.getString("alumno.nombre"));
             }
+            ps.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Inscripcion." + ex.getMessage());
         }
