@@ -44,7 +44,7 @@ public class AlumnoData {
             }
             con.close();
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Alumno "+ex.getMessage());
+            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Alumno. "+ex.getMessage());
         }
     }
     
@@ -75,7 +75,7 @@ public class AlumnoData {
             
             ps.close();
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Alumno "+ex.getMessage());
+            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Alumno. "+ex.getMessage());
         }
         return alumno;
     }
@@ -107,7 +107,7 @@ public class AlumnoData {
             
             ps.close();
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Alumno "+ex.getMessage());
+            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Alumno. "+ex.getMessage());
         }
         return alumno;
     }
@@ -122,19 +122,20 @@ public class AlumnoData {
             
             ResultSet rs = ps.executeQuery();
             
+            Alumno alumno = new Alumno();
+            
             while(rs.next()){
-                Alumno alumno = new Alumno();
-                
                 alumno.setIdAlumno(rs.getInt("idAlumno"));
                 alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre(rs.getString("nombre"));
                 alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
                 alumno.setEstado(true);
+                
                 alumnos.add(alumno);
             }
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno. "+ex.getMessage());
         }
         
         return alumnos;
@@ -161,7 +162,7 @@ public class AlumnoData {
                 JOptionPane.showMessageDialog(null,"El alumno no existe.");
             }
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Alumno "+ex.getMessage());
+            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Alumno. "+ex.getMessage());
         }
     }
     
@@ -179,7 +180,7 @@ public class AlumnoData {
                 JOptionPane.showMessageDialog(null,"Se elimino el alumno correctamente.");
             }
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Alumno "+ex.getMessage());
+            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Alumno. "+ex.getMessage());
         }
     }
 }
