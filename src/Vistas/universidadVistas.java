@@ -32,11 +32,11 @@ public class universidadVistas extends javax.swing.JFrame {
         Escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmAlumno = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
+        jmFormularioAlumno = new javax.swing.JMenu();
         jmFormularioMateria = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        jmFMateria = new javax.swing.JMenu();
         jmAdministracion = new javax.swing.JMenu();
-        jmInscripcion = new javax.swing.JMenu();
+        jmManejoInscripcion = new javax.swing.JMenu();
         jmNotas = new javax.swing.JMenu();
         jmConsultas = new javax.swing.JMenu();
         jmAlumnoMateria = new javax.swing.JMenu();
@@ -68,34 +68,44 @@ public class universidadVistas extends javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("Formulario de Materia");
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+        jmFormularioAlumno.setText("Formulario de Alumno");
+        jmFormularioAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
+                jmFormularioAlumnoActionPerformed(evt);
             }
         });
-        jmAlumno.add(jMenu1);
+        jmAlumno.add(jmFormularioAlumno);
 
         jMenuBar1.add(jmAlumno);
 
         jmFormularioMateria.setText("Materia");
 
-        jMenu2.setText("Formulario de Materia");
-        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+        jmFMateria.setText("Formulario de Materia");
+        jmFMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu2ActionPerformed(evt);
+                jmFMateriaActionPerformed(evt);
             }
         });
-        jmFormularioMateria.add(jMenu2);
+        jmFormularioMateria.add(jmFMateria);
 
         jMenuBar1.add(jmFormularioMateria);
 
         jmAdministracion.setText("Administracion");
 
-        jmInscripcion.setText("Mesanejo de Inscripcion");
-        jmAdministracion.add(jmInscripcion);
+        jmManejoInscripcion.setText("Menejo de Inscripcion");
+        jmManejoInscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmManejoInscripcionActionPerformed(evt);
+            }
+        });
+        jmAdministracion.add(jmManejoInscripcion);
 
         jmNotas.setText("Manipulacion de notas");
+        jmNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmNotasActionPerformed(evt);
+            }
+        });
         jmAdministracion.add(jmNotas);
 
         jMenuBar1.add(jmAdministracion);
@@ -103,6 +113,11 @@ public class universidadVistas extends javax.swing.JFrame {
         jmConsultas.setText("Consultas");
 
         jmAlumnoMateria.setText("Alumnos por Materia");
+        jmAlumnoMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmAlumnoMateriaActionPerformed(evt);
+            }
+        });
         jmConsultas.add(jmAlumnoMateria);
 
         jMenuBar1.add(jmConsultas);
@@ -132,7 +147,7 @@ public class universidadVistas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jmAlumnoActionPerformed
 
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+    private void jmFormularioAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmFormularioAlumnoActionPerformed
        Escritorio.removeAll();
        Escritorio.repaint();
        FormularioAlumno FA= new FormularioAlumno();
@@ -140,16 +155,45 @@ public class universidadVistas extends javax.swing.JFrame {
        Escritorio.add(FA);
        Escritorio.moveToFront(FA);
        
-    }//GEN-LAST:event_jMenu1ActionPerformed
+    }//GEN-LAST:event_jmFormularioAlumnoActionPerformed
 
-    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
- Escritorio.removeAll();
+    private void jmFMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmFMateriaActionPerformed
+       Escritorio.removeAll();
        Escritorio.repaint();
        Materia FM= new Materia();
        FM.setVisible(true);
        Escritorio.add(FM);
        Escritorio.moveToFront(FM);       
-    }//GEN-LAST:event_jMenu2ActionPerformed
+    }//GEN-LAST:event_jmFMateriaActionPerformed
+
+    private void jmManejoInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmManejoInscripcionActionPerformed
+       Escritorio.repaint();
+    FormularioInscripcion FInscripcion= new FormularioInscripcion();
+       FInscripcion.setVisible(true);
+       Escritorio.add(FInscripcion);
+       Escritorio.moveToFront(FInscripcion);   
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmManejoInscripcionActionPerformed
+
+    private void jmNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmNotasActionPerformed
+ Escritorio.repaint();
+    ManipulacionNotas MNotas= new ManipulacionNotas();
+      MNotas.setVisible(true);
+       Escritorio.add(MNotas);
+       Escritorio.moveToFront(MNotas);
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmNotasActionPerformed
+
+    private void jmAlumnoMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAlumnoMateriaActionPerformed
+       Escritorio.repaint();
+   ListadoAlumnos LA = new ListadoAlumnos();
+      LA.setVisible(true);
+       Escritorio.add(LA);
+       Escritorio.moveToFront(LA);
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_jmAlumnoMateriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,8 +232,6 @@ public class universidadVistas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane Escritorio;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
@@ -197,8 +239,10 @@ public class universidadVistas extends javax.swing.JFrame {
     private javax.swing.JMenu jmAlumno;
     private javax.swing.JMenu jmAlumnoMateria;
     private javax.swing.JMenu jmConsultas;
+    private javax.swing.JMenu jmFMateria;
+    private javax.swing.JMenu jmFormularioAlumno;
     private javax.swing.JMenu jmFormularioMateria;
-    private javax.swing.JMenu jmInscripcion;
+    private javax.swing.JMenu jmManejoInscripcion;
     private javax.swing.JMenu jmNotas;
     private javax.swing.JMenu jmSalir;
     // End of variables declaration//GEN-END:variables
