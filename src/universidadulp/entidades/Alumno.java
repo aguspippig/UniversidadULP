@@ -87,6 +87,10 @@ public class Alumno {
 
     @Override
     public String toString() {
+<<<<<<< HEAD
         return "ID: " + idAlumno + ", DNI: " + dni + ", Apellido: " + apellido + ", Nombre:" + nombre + ", Fecha de Nacimiento: " + fechaNacimiento + ", Estado: " + estado;
+=======
+        return "Alumno{" + "ID=" + idAlumno + "DNI=" + dni + ", Apellido=" + apellido + ", Nombre=" + nombre + ", Fecha de Nacimiento=" + fechaNacimiento + ", Estado=" + estado + '}';
+>>>>>>> parent of f9264c5 (Buscar alumno por ID)
     }
 }

@@ -38,7 +38,7 @@ public class AlumnoData {
             ResultSet rs = ps.getGeneratedKeys();
             
             if(rs.next()){
-                alumno.setIdAlumno(rs.getInt(1));
+                alumno.setIdAlumno(rs.getInt("idAlumno"));
                 
                 JOptionPane.showMessageDialog(null, "Alumno añadido con exito.");
             }else{
@@ -55,8 +55,9 @@ public class AlumnoData {
         
         String sql = "SELECT dni,apellido,nombre,fechaNacimiento FROM alumno WHERE idAlumno = ? AND estado = 1";
         
+        PreparedStatement ps = null;
+        
         try{
-            PreparedStatement ps = null;
             ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             
