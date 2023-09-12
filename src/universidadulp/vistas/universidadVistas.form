@@ -38,6 +38,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmFormularioAlumnoActionPerformed"/>
               </Events>
             </Menu>
+            <MenuItem class="javax.swing.JMenuItem" name="jmFormAlumno">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Formulario de Alumno"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmFormAlumnoActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jmFormularioMateria">

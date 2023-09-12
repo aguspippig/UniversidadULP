@@ -41,6 +41,8 @@ public class AlumnoData {
                 alumno.setIdAlumno(rs.getInt("idAlumno"));
                 
                 JOptionPane.showMessageDialog(null, "Alumno añadido con exito.");
+            }else{
+                JOptionPane.showMessageDialog(null,"ERROR!");
             }
             con.close();
         }catch(SQLException ex){
@@ -104,7 +106,7 @@ public class AlumnoData {
             }else{
                 JOptionPane.showMessageDialog(null,"No existe el alumno solicitado.");
             }
-            
+            rs.close();
             ps.close();
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Alumno. "+ex.getMessage());

@@ -4,6 +4,9 @@
  */
 package universidadulp;
 
+import universidadulp.accesoADatos.AlumnoData;
+import universidadulp.entidades.Alumno;
+
 /**
  *
  * @author agus_
@@ -15,7 +18,11 @@ public class UniversidadULP {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-
+        AlumnoData aluData = new AlumnoData();
+        
+        Alumno alumno = aluData.buscarAlumno(37555630);
+        
+        System.out.println(alumno.getApellido());
     }
     
 }

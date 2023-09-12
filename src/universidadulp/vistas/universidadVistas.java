@@ -33,6 +33,7 @@ public class universidadVistas extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jmAlumno = new javax.swing.JMenu();
         jmFormularioAlumno = new javax.swing.JMenu();
+        jmFormAlumno = new javax.swing.JMenuItem();
         jmFormularioMateria = new javax.swing.JMenu();
         jmFMateria = new javax.swing.JMenu();
         jmAdministracion = new javax.swing.JMenu();
@@ -75,6 +76,14 @@ public class universidadVistas extends javax.swing.JFrame {
             }
         });
         jmAlumno.add(jmFormularioAlumno);
+
+        jmFormAlumno.setText("Formulario de Alumno");
+        jmFormAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmFormAlumnoActionPerformed(evt);
+            }
+        });
+        jmAlumno.add(jmFormAlumno);
 
         jMenuBar1.add(jmAlumno);
 
@@ -144,56 +153,66 @@ public class universidadVistas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAlumnoActionPerformed
-        
+
     }//GEN-LAST:event_jmAlumnoActionPerformed
 
     private void jmFormularioAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmFormularioAlumnoActionPerformed
-       Escritorio.removeAll();
-       Escritorio.repaint();
-       FormularioAlumno FA= new FormularioAlumno();
-       FA.setVisible(true);
-       Escritorio.add(FA);
-       Escritorio.moveToFront(FA);
-       
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        FormularioAlumno FA = new FormularioAlumno();
+        FA.setVisible(true);
+        Escritorio.add(FA);
+        Escritorio.moveToFront(FA);
+
     }//GEN-LAST:event_jmFormularioAlumnoActionPerformed
 
     private void jmFMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmFMateriaActionPerformed
-       Escritorio.removeAll();
-       Escritorio.repaint();
-       Materia FM= new Materia();
-       FM.setVisible(true);
-       Escritorio.add(FM);
-       Escritorio.moveToFront(FM);       
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        Materia FM = new Materia();
+        FM.setVisible(true);
+        Escritorio.add(FM);
+        Escritorio.moveToFront(FM);
     }//GEN-LAST:event_jmFMateriaActionPerformed
 
     private void jmManejoInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmManejoInscripcionActionPerformed
-       Escritorio.repaint();
-    FormularioInscripcion FInscripcion= new FormularioInscripcion();
-       FInscripcion.setVisible(true);
-       Escritorio.add(FInscripcion);
-       Escritorio.moveToFront(FInscripcion);   
+        Escritorio.repaint();
+        FormularioInscripcion FInscripcion = new FormularioInscripcion();
+        FInscripcion.setVisible(true);
+        Escritorio.add(FInscripcion);
+        Escritorio.moveToFront(FInscripcion);
         // TODO add your handling code here:
     }//GEN-LAST:event_jmManejoInscripcionActionPerformed
 
     private void jmNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmNotasActionPerformed
- Escritorio.repaint();
-    ManipulacionNotas MNotas= new ManipulacionNotas();
-      MNotas.setVisible(true);
-       Escritorio.add(MNotas);
-       Escritorio.moveToFront(MNotas);
-        
+        Escritorio.repaint();
+        ManipulacionNotas MNotas = new ManipulacionNotas();
+        MNotas.setVisible(true);
+        Escritorio.add(MNotas);
+        Escritorio.moveToFront(MNotas);
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jmNotasActionPerformed
 
     private void jmAlumnoMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAlumnoMateriaActionPerformed
-       Escritorio.repaint();
-   ListadoAlumnos LA = new ListadoAlumnos();
-      LA.setVisible(true);
-       Escritorio.add(LA);
-       Escritorio.moveToFront(LA);
-        
+        Escritorio.repaint();
+        ListadoAlumnos LA = new ListadoAlumnos();
+        LA.setVisible(true);
+        Escritorio.add(LA);
+        Escritorio.moveToFront(LA);
+
 // TODO add your handling code here:
     }//GEN-LAST:event_jmAlumnoMateriaActionPerformed
+
+    private void jmFormAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmFormAlumnoActionPerformed
+        // TODO add your handling code here:
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        FormularioAlumno FA = new FormularioAlumno();
+        FA.setVisible(true);
+        Escritorio.add(FA);
+        Escritorio.moveToFront(FA);
+    }//GEN-LAST:event_jmFormAlumnoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,6 +259,7 @@ public class universidadVistas extends javax.swing.JFrame {
     private javax.swing.JMenu jmAlumnoMateria;
     private javax.swing.JMenu jmConsultas;
     private javax.swing.JMenu jmFMateria;
+    private javax.swing.JMenuItem jmFormAlumno;
     private javax.swing.JMenu jmFormularioAlumno;
     private javax.swing.JMenu jmFormularioMateria;
     private javax.swing.JMenu jmManejoInscripcion;
