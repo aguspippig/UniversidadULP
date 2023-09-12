@@ -7,6 +7,7 @@ package universidadulp.vistas;
 
 import java.util.List;
 import javax.swing.ComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import universidadulp.accesoADatos.AlumnoData;
 import universidadulp.entidades.Alumno;
@@ -134,10 +135,10 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jrMateriasNoInscriptas))
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jcAlumnoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jcAlumnoSeleccionado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(213, 213, 213)
                         .addComponent(jLabel1)))
@@ -216,7 +217,7 @@ private void armarComboB(){
     alumnos = ad.listarAlumnos();
     
     for (int i = 0; i < alumnos.size(); i++) {
-        
+        JOptionPane.showMessageDialog(null, alumnos.get(1));
         jcAlumnoSeleccionado.addItem(alumnos.get(i));
     }
 }
