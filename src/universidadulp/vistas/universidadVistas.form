@@ -38,14 +38,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmFormAlumnoActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jmBuscarID">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Buscar Alumno (ID)"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmBuscarIDActionPerformed"/>
-              </Events>
-            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jmFormularioMateria">
@@ -68,14 +60,6 @@
             <Property name="text" type="java.lang.String" value="Administracion"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jmManejoInscripcion">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Menejo de Inscripcion"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmManejoInscripcionActionPerformed"/>
-              </Events>
-            </Menu>
             <Menu class="javax.swing.JMenu" name="jmNotas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Manipulacion de notas"/>
@@ -84,21 +68,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmNotasActionPerformed"/>
               </Events>
             </Menu>
-<<<<<<< HEAD
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
-<<<<<<< HEAD
                 <Property name="text" type="java.lang.String" value="Manipulacion de Inscripciones"/>
-=======
-                <Property name="text" type="java.lang.String" value="Manejo de inscripciones"/>
->>>>>>> 15c518192813c927e91dcf5d589eefa60d79e7b0
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
               </Events>
             </MenuItem>
-=======
->>>>>>> parent of 5b1e77a (Formulario alumnos terminado)
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jmConsultas">
