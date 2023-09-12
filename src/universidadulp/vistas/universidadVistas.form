@@ -70,7 +70,11 @@
             </Menu>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
+<<<<<<< HEAD
                 <Property name="text" type="java.lang.String" value="Manipulacion de Inscripciones"/>
+=======
+                <Property name="text" type="java.lang.String" value="Manejo de inscripciones"/>
+>>>>>>> 15c518192813c927e91dcf5d589eefa60d79e7b0
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
