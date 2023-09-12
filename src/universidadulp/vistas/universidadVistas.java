@@ -34,11 +34,12 @@ public class universidadVistas extends javax.swing.JFrame {
         jmAlumno = new javax.swing.JMenu();
         jmFormularioAlumno = new javax.swing.JMenu();
         jmFormAlumno = new javax.swing.JMenuItem();
+        jmBuscarID = new javax.swing.JMenuItem();
         jmFormularioMateria = new javax.swing.JMenu();
         jmFMateria = new javax.swing.JMenu();
         jmAdministracion = new javax.swing.JMenu();
+        jmManejoInscripcion = new javax.swing.JMenu();
         jmNotas = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jmConsultas = new javax.swing.JMenu();
         jmAlumnoMateria = new javax.swing.JMenu();
         jmSalir = new javax.swing.JMenu();
@@ -85,6 +86,14 @@ public class universidadVistas extends javax.swing.JFrame {
         });
         jmAlumno.add(jmFormAlumno);
 
+        jmBuscarID.setText("Buscar Alumno (ID)");
+        jmBuscarID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmBuscarIDActionPerformed(evt);
+            }
+        });
+        jmAlumno.add(jmBuscarID);
+
         jMenuBar1.add(jmAlumno);
 
         jmFormularioMateria.setText("Materia");
@@ -101,6 +110,14 @@ public class universidadVistas extends javax.swing.JFrame {
 
         jmAdministracion.setText("Administracion");
 
+        jmManejoInscripcion.setText("Menejo de Inscripcion");
+        jmManejoInscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmManejoInscripcionActionPerformed(evt);
+            }
+        });
+        jmAdministracion.add(jmManejoInscripcion);
+
         jmNotas.setText("Manipulacion de notas");
         jmNotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +126,7 @@ public class universidadVistas extends javax.swing.JFrame {
         });
         jmAdministracion.add(jmNotas);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         jMenuItem1.setText("Manipulacion de Inscripciones");
 =======
@@ -121,6 +139,8 @@ public class universidadVistas extends javax.swing.JFrame {
         });
         jmAdministracion.add(jMenuItem1);
 
+=======
+>>>>>>> parent of 5b1e77a (Formulario alumnos terminado)
         jMenuBar1.add(jmAdministracion);
 
         jmConsultas.setText("Consultas");
@@ -179,6 +199,15 @@ public class universidadVistas extends javax.swing.JFrame {
         Escritorio.moveToFront(FM);
     }//GEN-LAST:event_jmFMateriaActionPerformed
 
+    private void jmManejoInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmManejoInscripcionActionPerformed
+        Escritorio.repaint();
+        FormularioInscripcion FInscripcion = new FormularioInscripcion();
+        FInscripcion.setVisible(true);
+        Escritorio.add(FInscripcion);
+        Escritorio.moveToFront(FInscripcion);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmManejoInscripcionActionPerformed
+
     private void jmNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmNotasActionPerformed
         Escritorio.repaint();
         ManipulacionNotas MNotas = new ManipulacionNotas();
@@ -209,16 +238,17 @@ public class universidadVistas extends javax.swing.JFrame {
         Escritorio.moveToFront(FA);
     }//GEN-LAST:event_jmFormAlumnoActionPerformed
 
-<<<<<<< HEAD
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+
+    private void jmBuscarIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmBuscarIDActionPerformed
+
         // TODO add your handling code here:
         Escritorio.removeAll();
         Escritorio.repaint();
-        FormularioInscripcion fi = new FormularioInscripcion();
-        fi.setVisible(true);
-        Escritorio.add(fi);
-        Escritorio.moveToFront(fi);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+        BuscarAlumnoID baid = new BuscarAlumnoID();
+        baid.setVisible(true);
+        Escritorio.add(baid);
+        Escritorio.moveToFront(baid);
+    }//GEN-LAST:event_jmBuscarIDActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         Escritorio.repaint();
@@ -229,8 +259,6 @@ public class universidadVistas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-=======
->>>>>>> parent of f9264c5 (Buscar alumno por ID)
     /**
      * @param args the command line arguments
      */
@@ -271,15 +299,16 @@ public class universidadVistas extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu jmAdministracion;
     private javax.swing.JMenu jmAlumno;
     private javax.swing.JMenu jmAlumnoMateria;
+    private javax.swing.JMenuItem jmBuscarID;
     private javax.swing.JMenu jmConsultas;
     private javax.swing.JMenu jmFMateria;
     private javax.swing.JMenuItem jmFormAlumno;
     private javax.swing.JMenu jmFormularioAlumno;
     private javax.swing.JMenu jmFormularioMateria;
+    private javax.swing.JMenu jmManejoInscripcion;
     private javax.swing.JMenu jmNotas;
     private javax.swing.JMenu jmSalir;
     // End of variables declaration//GEN-END:variables
