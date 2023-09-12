@@ -32,8 +32,8 @@ public class universidadVistas extends javax.swing.JFrame {
         Escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmAlumno = new javax.swing.JMenu();
-        jmFormularioAlumno = new javax.swing.JMenu();
         jmFormAlumno = new javax.swing.JMenuItem();
+        jmBuscarID = new javax.swing.JMenuItem();
         jmFormularioMateria = new javax.swing.JMenu();
         jmFMateria = new javax.swing.JMenu();
         jmAdministracion = new javax.swing.JMenu();
@@ -55,11 +55,11 @@ public class universidadVistas extends javax.swing.JFrame {
         Escritorio.setLayout(EscritorioLayout);
         EscritorioLayout.setHorizontalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 872, Short.MAX_VALUE)
+            .addGap(0, 787, Short.MAX_VALUE)
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1347, Short.MAX_VALUE)
+            .addGap(0, 621, Short.MAX_VALUE)
         );
 
         jmAlumno.setText("Alumno");
@@ -69,14 +69,6 @@ public class universidadVistas extends javax.swing.JFrame {
             }
         });
 
-        jmFormularioAlumno.setText("Formulario de Alumno");
-        jmFormularioAlumno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmFormularioAlumnoActionPerformed(evt);
-            }
-        });
-        jmAlumno.add(jmFormularioAlumno);
-
         jmFormAlumno.setText("Formulario de Alumno");
         jmFormAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +76,14 @@ public class universidadVistas extends javax.swing.JFrame {
             }
         });
         jmAlumno.add(jmFormAlumno);
+
+        jmBuscarID.setText("Buscar Alumno (ID)");
+        jmBuscarID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmBuscarIDActionPerformed(evt);
+            }
+        });
+        jmAlumno.add(jmBuscarID);
 
         jMenuBar1.add(jmAlumno);
 
@@ -144,9 +144,7 @@ public class universidadVistas extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(Escritorio)
         );
 
         pack();
@@ -155,16 +153,6 @@ public class universidadVistas extends javax.swing.JFrame {
     private void jmAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAlumnoActionPerformed
 
     }//GEN-LAST:event_jmAlumnoActionPerformed
-
-    private void jmFormularioAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmFormularioAlumnoActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
-        FormularioAlumno FA = new FormularioAlumno();
-        FA.setVisible(true);
-        Escritorio.add(FA);
-        Escritorio.moveToFront(FA);
-
-    }//GEN-LAST:event_jmFormularioAlumnoActionPerformed
 
     private void jmFMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmFMateriaActionPerformed
         Escritorio.removeAll();
@@ -214,6 +202,16 @@ public class universidadVistas extends javax.swing.JFrame {
         Escritorio.moveToFront(FA);
     }//GEN-LAST:event_jmFormAlumnoActionPerformed
 
+    private void jmBuscarIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmBuscarIDActionPerformed
+        // TODO add your handling code here:
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        BuscarAlumnoID baid = new BuscarAlumnoID();
+        baid.setVisible(true);
+        Escritorio.add(baid);
+        Escritorio.moveToFront(baid);
+    }//GEN-LAST:event_jmBuscarIDActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -257,10 +255,10 @@ public class universidadVistas extends javax.swing.JFrame {
     private javax.swing.JMenu jmAdministracion;
     private javax.swing.JMenu jmAlumno;
     private javax.swing.JMenu jmAlumnoMateria;
+    private javax.swing.JMenuItem jmBuscarID;
     private javax.swing.JMenu jmConsultas;
     private javax.swing.JMenu jmFMateria;
     private javax.swing.JMenuItem jmFormAlumno;
-    private javax.swing.JMenu jmFormularioAlumno;
     private javax.swing.JMenu jmFormularioMateria;
     private javax.swing.JMenu jmManejoInscripcion;
     private javax.swing.JMenu jmNotas;

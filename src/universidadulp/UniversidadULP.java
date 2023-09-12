@@ -20,9 +20,9 @@ public class UniversidadULP {
         // TODO code application logic here
         AlumnoData aluData = new AlumnoData();
         
-        Alumno alumno = aluData.buscarAlumno(37555630);
+        Alumno alumno = aluData.buscarAlumno(9);
         
-        System.out.println(alumno.getApellido());
+        System.out.println(alumno);
     }
     
 }
