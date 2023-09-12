@@ -100,7 +100,11 @@ public class universidadVistas extends javax.swing.JFrame {
         });
         jmAdministracion.add(jmNotas);
 
+<<<<<<< HEAD
         jMenuItem1.setText("Manipulacion de Inscripciones");
+=======
+        jMenuItem1.setText("Manejo de inscripciones");
+>>>>>>> 15c518192813c927e91dcf5d589eefa60d79e7b0
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -192,6 +196,15 @@ public class universidadVistas extends javax.swing.JFrame {
         fi.setVisible(true);
         Escritorio.add(fi);
         Escritorio.moveToFront(fi);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        Escritorio.repaint();
+        FormularioInscripcion FInscripcion = new FormularioInscripcion();
+        FInscripcion.setVisible(true);
+        Escritorio.add(FInscripcion);
+        Escritorio.moveToFront(FInscripcion);
+        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
