@@ -86,9 +86,8 @@ public class AlumnoData {
         
         String sql = "SELECT idAlumno, dni, apellido, nombre, fechaNacimiento FROM alumno WHERE dni = ? AND estado = 1";
         
-        PreparedStatement ps = null;
-        
         try{
+            PreparedStatement ps = null;
             ps = con.prepareStatement(sql);
             ps.setInt(1, dni);
             
@@ -145,10 +144,11 @@ public class AlumnoData {
     public void modificarAlumno(Alumno alumno){
         String sql = "UPDATE alumno SET dni = ?, apellido = ?, nombre = ?, fechaNacimiento = ? WHERE idAlumno = ?";
         
-        PreparedStatement ps = null;
-        
         try{
+            PreparedStatement ps = null;
+            
             ps = con.prepareStatement(sql);
+            
             ps.setInt(1,alumno.getDni());
             ps.setString(2,alumno.getApellido());
             ps.setString(3,alumno.getNombre());
@@ -177,9 +177,9 @@ public class AlumnoData {
             
             int registro = ps.executeUpdate();
             
-            if(registro == 1){
+            /*if(registro == 1){
                 JOptionPane.showMessageDialog(null,"Se elimino el alumno correctamente.");
-            }
+            }*/
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Alumno. "+ex.getMessage());
         }
