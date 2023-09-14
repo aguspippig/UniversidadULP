@@ -57,10 +57,10 @@ public class UniversidadULP {
         
         materiaData.guardarMateria(mate);*/
         
-        List<Alumno> lista = inscData.obtenerAlumnosXMateria(3);
+        List<Materia> lista = inscData.obtenerMateriasCursadas(5);
         
-        for (Alumno alumno : lista) {
-            System.out.println(alumno);
+        for (Materia materia : lista) {
+            System.out.println(materia);
         }
     }
     

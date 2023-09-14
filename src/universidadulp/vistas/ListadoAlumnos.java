@@ -52,6 +52,8 @@ public class ListadoAlumnos extends javax.swing.JInternalFrame {
         jtAlumnos = new javax.swing.JTable();
         jcbMateria = new javax.swing.JComboBox<>();
 
+        setClosable(true);
+
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("LISTADO DE ALUMNOS POR MATERIA");
 
@@ -104,7 +106,7 @@ public class ListadoAlumnos extends javax.swing.JInternalFrame {
                     .addComponent(jcbMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();

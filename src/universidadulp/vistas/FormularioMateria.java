@@ -36,7 +36,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         jtNombre = new javax.swing.JTextField();
         jtAnio = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jbBuscarMateria = new javax.swing.JButton();
+        jButton_buscar = new javax.swing.JButton();
         jrEstadoMateria = new javax.swing.JRadioButton();
         jbNuevaMateria = new javax.swing.JButton();
         jbEliminarMateriia = new javax.swing.JButton();
@@ -51,21 +51,14 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Estado");
 
-        jtCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtCodigoActionPerformed(evt);
-            }
-        });
-
-        jtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtNombreActionPerformed(evt);
-            }
-        });
-
         jLabel5.setText("Materia");
 
-        jbBuscarMateria.setText("Buscar");
+        jButton_buscar.setText("Buscar");
+        jButton_buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_buscarActionPerformed(evt);
+            }
+        });
 
         jrEstadoMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,20 +89,18 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
                             .addComponent(jLabel4))
                         .addGap(119, 119, 119)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jrEstadoMateria)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jrEstadoMateria)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jtCodigo)
                                     .addComponent(jtNombre)
                                     .addComponent(jtAnio, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jbBuscarMateria))))
+                                .addComponent(jButton_buscar))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(234, 234, 234)
                         .addComponent(jLabel5)))
-                .addContainerGap())
+                .addGap(45, 45, 45))
             .addGroup(layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addComponent(jbNuevaMateria)
@@ -129,7 +120,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbBuscarMateria))
+                    .addComponent(jButton_buscar))
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -153,14 +144,6 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtCodigoActionPerformed
-
-    private void jtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtNombreActionPerformed
 
     private void jrEstadoMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrEstadoMateriaActionPerformed
         // TODO add your handling code here:
@@ -227,12 +210,12 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_buscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JButton jbBuscarMateria;
     private javax.swing.JButton jbEliminarMateriia;
     private javax.swing.JButton jbGuardarMateria;
     private javax.swing.JButton jbNuevaMateria;
