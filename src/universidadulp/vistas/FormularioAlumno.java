@@ -18,7 +18,7 @@ import universidadulp.entidades.Alumno;
  */
 public class FormularioAlumno extends javax.swing.JInternalFrame {
 
-    AlumnoData aluData = new AlumnoData();
+    private AlumnoData aluData = new AlumnoData();
 
     /**
      * Creates new form FormularioAlumno

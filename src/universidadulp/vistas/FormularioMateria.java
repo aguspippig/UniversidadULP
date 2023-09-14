@@ -9,12 +9,12 @@ package universidadulp.vistas;
  *
  * @author marti
  */
-public class Materia extends javax.swing.JInternalFrame {
+public class FormularioMateria extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Materia
      */
-    public Materia() {
+    public FormularioMateria() {
         initComponents();
     }
 

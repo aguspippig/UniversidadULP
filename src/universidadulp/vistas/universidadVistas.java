@@ -39,7 +39,7 @@ public class universidadVistas extends javax.swing.JFrame {
         jmNotas = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jmConsultas = new javax.swing.JMenu();
-        jmAlumnoMateria = new javax.swing.JMenu();
+        jmAluXMat = new javax.swing.JMenuItem();
         jmSalir = new javax.swing.JMenu();
 
         jMenu3.setText("jMenu3");
@@ -112,13 +112,13 @@ public class universidadVistas extends javax.swing.JFrame {
 
         jmConsultas.setText("Consultas");
 
-        jmAlumnoMateria.setText("Alumnos por Materia");
-        jmAlumnoMateria.addActionListener(new java.awt.event.ActionListener() {
+        jmAluXMat.setText("Alumnos por Materia");
+        jmAluXMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmAlumnoMateriaActionPerformed(evt);
+                jmAluXMatActionPerformed(evt);
             }
         });
-        jmConsultas.add(jmAlumnoMateria);
+        jmConsultas.add(jmAluXMat);
 
         jMenuBar1.add(jmConsultas);
 
@@ -148,7 +148,7 @@ public class universidadVistas extends javax.swing.JFrame {
     private void jmFMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmFMateriaActionPerformed
         Escritorio.removeAll();
         Escritorio.repaint();
-        Materia FM = new Materia();
+        FormularioMateria FM = new FormularioMateria();
         FM.setVisible(true);
         Escritorio.add(FM);
         Escritorio.moveToFront(FM);
@@ -163,16 +163,6 @@ public class universidadVistas extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jmNotasActionPerformed
-
-    private void jmAlumnoMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAlumnoMateriaActionPerformed
-        Escritorio.repaint();
-        ListadoAlumnos LA = new ListadoAlumnos();
-        LA.setVisible(true);
-        Escritorio.add(LA);
-        Escritorio.moveToFront(LA);
-
-// TODO add your handling code here:
-    }//GEN-LAST:event_jmAlumnoMateriaActionPerformed
 
     private void jmFormAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmFormAlumnoActionPerformed
         // TODO add your handling code here:
@@ -193,6 +183,16 @@ public class universidadVistas extends javax.swing.JFrame {
         Escritorio.add(fi);
         Escritorio.moveToFront(fi);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jmAluXMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAluXMatActionPerformed
+        // TODO add your handling code here:
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        ListadoAlumnos la = new ListadoAlumnos();
+        la.setVisible(true);
+        Escritorio.add(la);
+        Escritorio.moveToFront(la);
+    }//GEN-LAST:event_jmAluXMatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,8 +236,8 @@ public class universidadVistas extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu jmAdministracion;
+    private javax.swing.JMenuItem jmAluXMat;
     private javax.swing.JMenu jmAlumno;
-    private javax.swing.JMenu jmAlumnoMateria;
     private javax.swing.JMenu jmConsultas;
     private javax.swing.JMenu jmFMateria;
     private javax.swing.JMenuItem jmFormAlumno;
