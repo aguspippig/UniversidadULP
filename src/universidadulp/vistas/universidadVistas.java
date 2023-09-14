@@ -34,7 +34,6 @@ public class universidadVistas extends javax.swing.JFrame {
         jmAlumno = new javax.swing.JMenu();
         jmFormAlumno = new javax.swing.JMenuItem();
         jmFormularioMateria = new javax.swing.JMenu();
-        jmFMateria = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jmAdministracion = new javax.swing.JMenu();
         jmNotas1 = new javax.swing.JMenu();
@@ -82,15 +81,12 @@ public class universidadVistas extends javax.swing.JFrame {
 
         jmFormularioMateria.setText("Materia");
 
-        jmFMateria.setText("Formulario de Materia");
-        jmFMateria.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem2.setText("Formulario de Materia");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmFMateriaActionPerformed(evt);
+                jMenuItem2ActionPerformed(evt);
             }
         });
-        jmFormularioMateria.add(jmFMateria);
-
-        jMenuItem2.setText("Formulario de Materia");
         jmFormularioMateria.add(jMenuItem2);
 
         jMenuBar1.add(jmFormularioMateria);
@@ -158,15 +154,6 @@ public class universidadVistas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jmAlumnoActionPerformed
 
-    private void jmFMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmFMateriaActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
-        FormularioMateria FM = new FormularioMateria();
-        FM.setVisible(true);
-        Escritorio.add(FM);
-        Escritorio.moveToFront(FM);
-    }//GEN-LAST:event_jmFMateriaActionPerformed
-
     private void jmNotas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmNotas1ActionPerformed
         Escritorio.repaint();
         ManipulacionNotas MNotas = new ManipulacionNotas();
@@ -211,6 +198,15 @@ public class universidadVistas extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jmSalirActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    Escritorio.removeAll();
+        Escritorio.repaint();
+        FormularioMateria FM = new FormularioMateria();
+        FM.setVisible(true);
+        Escritorio.add(FM);
+        Escritorio.moveToFront(FM);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,7 +254,6 @@ public class universidadVistas extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmAluXMat;
     private javax.swing.JMenu jmAlumno;
     private javax.swing.JMenu jmConsultas;
-    private javax.swing.JMenu jmFMateria;
     private javax.swing.JMenuItem jmFormAlumno;
     private javax.swing.JMenu jmFormularioMateria;
     private javax.swing.JMenuItem jmNotas;

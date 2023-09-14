@@ -38,7 +38,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton_buscar = new javax.swing.JButton();
         jrEstadoMateria = new javax.swing.JRadioButton();
-        jbNuevaMateria = new javax.swing.JButton();
+        jbModificar = new javax.swing.JButton();
         jbEliminarMateriia = new javax.swing.JButton();
         jbGuardarMateria = new javax.swing.JButton();
         jbSalirMateria = new javax.swing.JButton();
@@ -66,13 +66,33 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
             }
         });
 
-        jbNuevaMateria.setText("Nuevo");
+        jbModificar.setText("Modificar");
+        jbModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModificarActionPerformed(evt);
+            }
+        });
 
         jbEliminarMateriia.setText("Eliminar");
+        jbEliminarMateriia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarMateriiaActionPerformed(evt);
+            }
+        });
 
-        jbGuardarMateria.setText("Guardar");
+        jbGuardarMateria.setText("Nuevo");
+        jbGuardarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarMateriaActionPerformed(evt);
+            }
+        });
 
         jbSalirMateria.setText("Salir");
+        jbSalirMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirMateriaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,19 +118,21 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton_buscar))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(234, 234, 234)
-                        .addComponent(jLabel5)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(234, 234, 234)
+                                .addComponent(jLabel5))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addComponent(jbGuardarMateria)
+                                .addGap(28, 28, 28)
+                                .addComponent(jbEliminarMateriia)
+                                .addGap(30, 30, 30)
+                                .addComponent(jbModificar)
+                                .addGap(39, 39, 39)
+                                .addComponent(jbSalirMateria)))
+                        .addGap(0, 48, Short.MAX_VALUE)))
                 .addGap(45, 45, 45))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jbNuevaMateria)
-                .addGap(44, 44, 44)
-                .addComponent(jbEliminarMateriia)
-                .addGap(29, 29, 29)
-                .addComponent(jbGuardarMateria)
-                .addGap(26, 26, 26)
-                .addComponent(jbSalirMateria)
-                .addContainerGap(100, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,12 +155,12 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jrEstadoMateria))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbNuevaMateria)
                     .addComponent(jbEliminarMateriia)
                     .addComponent(jbGuardarMateria)
-                    .addComponent(jbSalirMateria))
+                    .addComponent(jbSalirMateria)
+                    .addComponent(jbModificar))
                 .addGap(34, 34, 34))
         );
 
@@ -204,6 +226,17 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         jrEstadoMateria.setSelected(mat.isEstado());
     }//GEN-LAST:event_jButton_buscarActionPerformed
 
+    private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
+      
+        int id= Integer.parseInt(jtCodigo.getText());
+        String nombre=jtNombre.getText();
+        int anio=Integer.parseInt(jtAnio.getText());
+        boolean estado=jrEstadoMateria.isEnabled();
+        
+        Materia materia=new Materia(id,anio, nombre, estado);
+        materiaData.modificarMateria(materia);
+    }//GEN-LAST:event_jbModificarActionPerformed
+
     
 
 
@@ -218,7 +251,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JButton jbEliminarMateriia;
     private javax.swing.JButton jbGuardarMateria;
-    private javax.swing.JButton jbNuevaMateria;
+    private javax.swing.JButton jbModificar;
     private javax.swing.JButton jbSalirMateria;
     private javax.swing.JRadioButton jrEstadoMateria;
     private javax.swing.JTextField jtAnio;
