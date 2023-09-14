@@ -155,9 +155,9 @@ public class InscripcionData {
 
             ResultSet rs = ps.executeQuery();
 
-            Materia materia = new Materia();
-
             while (rs.next()) {
+                Materia materia = new Materia();
+                
                 materia.setIdMateria(rs.getInt("idMateria"));
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnioMateria(rs.getInt("año"));
