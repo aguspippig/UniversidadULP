@@ -142,11 +142,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Materias no Inscriptas"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jrMateriasNoInscriptasActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="jrMateriasInscriptas">
       <Properties>
         <Property name="text" type="java.lang.String" value="Materias Inscriptas"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jrMateriasInscriptasActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jbInscribir">
       <Properties>

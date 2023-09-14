@@ -5,22 +5,32 @@
  */
 package universidadulp.vistas;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import universidadulp.accesoADatos.AlumnoData;
+import universidadulp.accesoADatos.InscripcionData;
 import universidadulp.entidades.Alumno;
+import universidadulp.entidades.Materia;
 
 /**
  *
  * @author marti
  */
 public class FormularioInscripcion extends javax.swing.JInternalFrame {
-
+    private AlumnoData ad = new AlumnoData();
+    private InscripcionData ID = new InscripcionData();
+    private List <Materia> materias = new ArrayList<>();
+    private List<Alumno> alumnos;
+    private DefaultTableModel jInscripcion = new DefaultTableModel(){
+        public boolean isCellEditable(int f, int c) {
+            return false;
+        }
+    };
     /**
      * Creates new form FormularioInscripcion
      */
-    private DefaultTableModel jInscripcion = new DefaultTableModel();
 
     public FormularioInscripcion() {
         initComponents();
@@ -72,8 +82,18 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         jLabel3.setText("Listado de Materias");
 
         jrMateriasNoInscriptas.setText("Materias no Inscriptas");
+        jrMateriasNoInscriptas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrMateriasNoInscriptasActionPerformed(evt);
+            }
+        });
 
         jrMateriasInscriptas.setText("Materias Inscriptas");
+        jrMateriasInscriptas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrMateriasInscriptasActionPerformed(evt);
+            }
+        });
 
         jbInscribir.setText("Inscribir");
         jbInscribir.addActionListener(new java.awt.event.ActionListener() {
@@ -188,6 +208,42 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_jbSalirInscripcionActionPerformed
 
+    private void jrMateriasInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrMateriasInscriptasActionPerformed
+        if (jrMateriasInscriptas.isSelected()){
+            jrMateriasNoInscriptas.setSelected(false);
+        }
+        borrarFilas();
+        Alumno alum = (Alumno) jcAlumnoSeleccionado.getModel().getSelectedItem();
+        materias = ID.obtenerMateriasCursadas(alum.getIdAlumno());
+        for (Materia mate : materias) {
+            
+            jInscripcion.addRow(new Object[]{
+            mate.getIdMateria(),
+            mate.getNombre(),
+            mate.getAnioMateria()});
+            
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jrMateriasInscriptasActionPerformed
+
+    private void jrMateriasNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrMateriasNoInscriptasActionPerformed
+        if (jrMateriasNoInscriptas.isSelected()){
+            jrMateriasInscriptas.setSelected(false);
+        }
+        borrarFilas();
+        Alumno alum = (Alumno) jcAlumnoSeleccionado.getModel().getSelectedItem();
+        materias = ID.obtenerMateriasNoCursadas(alum.getIdAlumno());
+        for (Materia mate : materias) {
+            
+            jInscripcion.addRow(new Object[]{
+            mate.getIdMateria(),
+            mate.getNombre(),
+            mate.getAnioMateria()});
+            
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jrMateriasNoInscriptasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -224,6 +280,14 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         for (int i = 0; i < alumnos.size(); i++) {
 
             jcAlumnoSeleccionado.addItem(alumnos.get(i));
+        }
+    }
+    
+    private void borrarFilas() {
+        int f = jtInscripcion.getRowCount() - 1;
+
+        for (; f >= 0; f--) {
+            jInscripcion.removeRow(f);
         }
     }
 }
