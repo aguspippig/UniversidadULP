@@ -90,6 +90,11 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         });
 
         jbSalirInscripcion.setText("Salir");
+        jbSalirInscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirInscripcionActionPerformed(evt);
+            }
+        });
 
         jtInscripcion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -177,6 +182,11 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     private void jbInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscribirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbInscribirActionPerformed
+
+    private void jbSalirInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirInscripcionActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jbSalirInscripcionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

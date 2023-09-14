@@ -15,13 +15,9 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     private Connection con;
 
     public FormularioMateria() {
-
-
         initComponents();
-
         this.materiaData = new MateriaData();
         this.con = Conexion.conectar();
-
     }
 
 
@@ -190,7 +186,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
     private void jbGuardarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarMateriaActionPerformed
 
-        int cod = Integer.parseInt(jtCodigo.getText());
+        //int cod = Integer.parseInt(jtCodigo.getText());
         String materia = jtNombre.getText();
         int anio = Integer.parseInt(jtAnio.getText());
         boolean estado = jrEstadoMateria.isEnabled();
