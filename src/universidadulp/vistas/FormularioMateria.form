@@ -35,7 +35,7 @@
                               <Component id="jrEstadoMateria" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jtCodigo" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jtNombre" alignment="0" max="32767" attributes="0"/>
@@ -91,7 +91,7 @@
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jrEstadoMateria" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="69" max="32767" attributes="0"/>
+              <EmptySpace pref="73" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jbNuevaMateria" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jbEliminarMateriia" alignment="3" min="-2" max="-2" attributes="0"/>
