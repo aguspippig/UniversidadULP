@@ -22,6 +22,8 @@ public class InscripcionData {
 
     public InscripcionData() {
         con = Conexion.conectar();
+        this.matData=new MateriaData();
+        this.aluData=new AlumnoData();
     }
 
     public void guardarInscripcion(Inscripcion insc) {
@@ -85,27 +87,39 @@ public class InscripcionData {
     }
 
     public List<Inscripcion> obtenerInscripcionesPorAlumno(int id) {
+        
         List<Inscripcion> inscripciones = new ArrayList<Inscripcion>();
 
         try {
-            String sql = "SELECT idInscripto, dni, apellido, nombre, nota FROM inscripcion JOIN alumno ON (inscripcion.idAlumno = alumno.idAlumno) WHERE alumno.idAlumno = ?";
-
+            //String sql = "SELECT idInscripto, dni, apellido, nombre, nota FROM inscripcion JOIN alumno ON (inscripcion.idAlumno = alumno.idAlumno) WHERE alumno.idAlumno = ?";
+            String sql="SELECT * FROM inscripcion WHERE idAlumno = ?";
             PreparedStatement ps = con.prepareStatement(sql);
-
+            ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
 
-            Inscripcion insc = new Inscripcion();
-
-            while (rs.next()) {
+//            while (rs.next()) {
+//                insc.setIdInscripcion(rs.getInt("idInscripto"));
+//                insc.getAlumno().setDni(rs.getInt("dni"));
+//                insc.getAlumno().setApellido(rs.getString("apellido"));
+//                insc.getAlumno().setNombre(rs.getString("nombre"));
+//                insc.setNota(rs.getDouble("nota"));
+//
+//                inscripciones.add(insc);
+//            }
+                        
+                while (rs.next()) {
+                Inscripcion insc = new Inscripcion();
                 insc.setIdInscripcion(rs.getInt("idInscripto"));
-                insc.getAlumno().setDni(rs.getInt("dni"));
-                insc.getAlumno().setApellido(rs.getString("apellido"));
-                insc.getAlumno().setNombre(rs.getString("nombre"));
+                Alumno alu = aluData.buscarAlumno(rs.getInt("idAlumno"));
+                Materia mat = matData.buscarMateria(rs.getInt("idMateria"));
+
+                insc.setAlumno(alu);
+                insc.setMateria(mat);
                 insc.setNota(rs.getDouble("nota"));
 
+                //agregar a la lista
                 inscripciones.add(insc);
             }
-
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Inscripcion." + ex.getMessage());

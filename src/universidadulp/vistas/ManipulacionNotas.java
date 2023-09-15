@@ -24,7 +24,15 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
     private List<Materia> listaMaterias= new ArrayList<Materia>();
     private List<Inscripcion> listaInscr=new ArrayList<Inscripcion>();
     
-    private DefaultTableModel tNotas = new DefaultTableModel(); 
+    private DefaultTableModel tNotas = new DefaultTableModel(){
+        public boolean isCellEditable(int f, int c){
+            if(c==2){
+                return true;
+            }else{
+               return false;
+            }
+        }
+    }; 
     
     public ManipulacionNotas() {
         initComponents();
@@ -67,6 +75,7 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtNotas.setEditingColumn(2);
         jScrollPane2.setViewportView(jtNotas);
 
         jbGuardarNotas.setText("Guardar");
@@ -126,18 +135,18 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
     private void jcbAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAlumnosActionPerformed
         // borrarfilas()
         borrarFilas();
-        
-        Alumno alumno= (Alumno) jcbAlumnos.getModel().getSelectedItem();
-        Materia mate=new Materia();
-        listaMaterias=inscData.obtenerMateriasCursadas(mate.getIdMateria());
-        
-        //Inscripcion ins=new Inscripcion();
-        listaInscr=inscData.obtenerInscripciones();
-        for (Inscripcion ins: listaInscr) {
-            ins.getMateria().getIdMateria();
-            ins.getMateria().getNombre();
-            ins.getNota();
+        Alumno alumno= (Alumno) jcbAlumnos.getModel().getSelectedItem(); //queda seleccionado el objeto alumno
+                
+        //listaMaterias=inscData.obtenerMateriasCursadas(alumno.getIdAlumno());
+        listaInscr=inscData.obtenerInscripcionesPorAlumno(alumno.getIdAlumno());
+       
+        for (Inscripcion i : listaInscr) {
+            tNotas.addRow(new Object[]{
+                i.getMateria(),
+                i.getMateria().getNombre(),
+                i.getNota(),});
         }
+        
     }//GEN-LAST:event_jcbAlumnosActionPerformed
 
 
@@ -156,7 +165,7 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
         tNotas.addColumn("Materia");
         tNotas.addColumn("Nota");
         jtNotas.setModel(tNotas);
-
+        
     }
     
     private void armarComboBox(){

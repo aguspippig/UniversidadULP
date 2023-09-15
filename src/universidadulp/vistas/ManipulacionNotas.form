@@ -106,6 +106,7 @@
                 <Column editable="true" title="Title 4" type="java.lang.Object"/>
               </Table>
             </Property>
+            <Property name="editingColumn" type="int" value="2"/>
           </Properties>
         </Component>
       </SubComponents>
