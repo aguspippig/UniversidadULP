@@ -22,7 +22,8 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
     private InscripcionData inscData = new InscripcionData();
     private List<Alumno> listaAlumnos = new ArrayList<Alumno>();
     private List<Materia> listaMaterias= new ArrayList<Materia>();
-   
+    private List<Inscripcion> listaInscr=new ArrayList<Inscripcion>();
+    
     private DefaultTableModel tNotas = new DefaultTableModel(); 
     
     public ManipulacionNotas() {
@@ -127,14 +128,16 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
         borrarFilas();
         
         Alumno alumno= (Alumno) jcbAlumnos.getModel().getSelectedItem();
-        listaAlumnos = aluData.listarAlumnos();
+        Materia mate=new Materia();
+        listaMaterias=inscData.obtenerMateriasCursadas(mate.getIdMateria());
         
-        
-//        for (Alumno alu : listaAlumnos) {
-//            tNotas.addRow(new Object[]{
-//               
-//        };
-//        }
+        //Inscripcion ins=new Inscripcion();
+        listaInscr=inscData.obtenerInscripciones();
+        for (Inscripcion ins: listaInscr) {
+            ins.getMateria().getIdMateria();
+            ins.getMateria().getNombre();
+            ins.getNota();
+        }
     }//GEN-LAST:event_jcbAlumnosActionPerformed
 
 
