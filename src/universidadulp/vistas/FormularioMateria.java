@@ -43,6 +43,8 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         jbGuardarMateria = new javax.swing.JButton();
         jbSalirMateria = new javax.swing.JButton();
 
+        setClosable(true);
+
         jLabel1.setText("Codigo: ");
 
         jLabel2.setText("Nombre");
@@ -51,6 +53,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Estado");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel5.setText("Materia");
 
         jButton_buscar.setText("Buscar");
@@ -109,28 +112,27 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
                             .addComponent(jLabel4))
                         .addGap(119, 119, 119)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jrEstadoMateria)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jtCodigo)
                                     .addComponent(jtNombre)
                                     .addComponent(jtAnio, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton_buscar))))
+                                .addComponent(jButton_buscar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jrEstadoMateria)
+                                    .addComponent(jLabel5))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(234, 234, 234)
-                                .addComponent(jLabel5))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(61, 61, 61)
-                                .addComponent(jbGuardarMateria)
-                                .addGap(28, 28, 28)
-                                .addComponent(jbEliminarMateriia)
-                                .addGap(30, 30, 30)
-                                .addComponent(jbModificar)
-                                .addGap(39, 39, 39)
-                                .addComponent(jbSalirMateria)))
+                        .addGap(61, 61, 61)
+                        .addComponent(jbGuardarMateria)
+                        .addGap(28, 28, 28)
+                        .addComponent(jbEliminarMateriia)
+                        .addGap(30, 30, 30)
+                        .addComponent(jbModificar)
+                        .addGap(39, 39, 39)
+                        .addComponent(jbSalirMateria)
                         .addGap(0, 48, Short.MAX_VALUE)))
                 .addGap(45, 45, 45))
         );
@@ -155,7 +157,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jrEstadoMateria))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbEliminarMateriia)
                     .addComponent(jbGuardarMateria)
@@ -190,16 +192,19 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
     private void jbGuardarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarMateriaActionPerformed
 
-        int cod = Integer.parseInt(jtCodigo.getText());
+       // int cod = Integer.parseInt(jtCodigo.getText());
         String materia = jtNombre.getText();
         int anio = Integer.parseInt(jtAnio.getText());
         boolean estado = jrEstadoMateria.isEnabled();
         Materia mat = new Materia(anio, materia, estado);
+        if("".equals(materia )){
+            JOptionPane.showMessageDialog(this, "Los campos no debes estar vacios");
+        }else{
         materiaData.guardarMateria(mat);
         
 // TODO add your handling code here:
     }//GEN-LAST:event_jbGuardarMateriaActionPerformed
-
+    }
     private void jbEliminarMateriiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarMateriiaActionPerformed
 
         int id = Integer.valueOf(jtCodigo.getText());
@@ -218,23 +223,44 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbEliminarMateriiaActionPerformed
     }
     private void jButton_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_buscarActionPerformed
+      try {
         int id = Integer.parseInt(jtCodigo.getText());
+
+        // if("".equals(id)){
+        // JOptionPane.showMessageDialog(this, "Ingrese otro " + id);
         Materia mat = materiaData.buscarMateria(id);
-        jtCodigo.setText(mat.getIdMateria() + "");
-        jtNombre.setText(mat.getNombre());
-        jtAnio.setText(mat.getAnioMateria() + "");
-        jrEstadoMateria.setSelected(mat.isEstado());
+        
+            // }catch (NumberFormatException ex){
+
+            jtCodigo.setText(mat.getIdMateria() + "");
+            jtNombre.setText(mat.getNombre());
+            jtAnio.setText(mat.getAnioMateria() + "");
+            jrEstadoMateria.setSelected(mat.isEstado());
+        } catch  (NullPointerException ex) {
+
+            JOptionPane.showMessageDialog(this, "Debe ingresar un numero");
+            jtCodigo.setText("");
+            jtCodigo.requestFocus();
+        } catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"Ingrese un numero");
+        }
+    
     }//GEN-LAST:event_jButton_buscarActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
-      
+     
+        
         int id= Integer.parseInt(jtCodigo.getText());
         String nombre=jtNombre.getText();
         int anio=Integer.parseInt(jtAnio.getText());
         boolean estado=jrEstadoMateria.isEnabled();
-        
+        if ("".equals(nombre)) {
+    JOptionPane.showMessageDialog(this,"complete todo los campos");
+     }else{
         Materia materia=new Materia(id,anio, nombre, estado);
         materiaData.modificarMateria(materia);
+      }
+      
     }//GEN-LAST:event_jbModificarActionPerformed
 
     
