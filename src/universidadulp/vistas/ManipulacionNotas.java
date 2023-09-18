@@ -8,8 +8,7 @@ package universidadulp.vistas;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import universidadulp.accesoADatos.AlumnoData;
-import universidadulp.accesoADatos.InscripcionData;
+import universidadulp.accesoADatos.*;
 import universidadulp.entidades.*;
 
 /**
@@ -17,26 +16,26 @@ import universidadulp.entidades.*;
  * @author marti
  */
 public class ManipulacionNotas extends javax.swing.JInternalFrame {
-    
+
     private AlumnoData aluData = new AlumnoData();
+    private List<Alumno> alumnos = new ArrayList<>();
     private InscripcionData inscData = new InscripcionData();
-    private List<Alumno> listaAlumnos = new ArrayList<Alumno>();
-    private List<Materia> listaMaterias= new ArrayList<Materia>();
-    private List<Inscripcion> listaInscr=new ArrayList<Inscripcion>();
-    
-    private DefaultTableModel tNotas = new DefaultTableModel(){
-        public boolean isCellEditable(int f, int c){
-            if(c==2){
+    private List<Materia> materias = new ArrayList<>();
+    private List<Inscripcion> inscripciones = new ArrayList<>();
+
+    private DefaultTableModel tNotas = new DefaultTableModel() {
+        public boolean isCellEditable(int f, int c) {
+            if (c == 2) {
                 return true;
-            }else{
-               return false;
+            } else {
+                return false;
             }
         }
-    }; 
-    
+    };
+
     public ManipulacionNotas() {
         initComponents();
-        Cabecera();
+        cabecera();
         armarComboBox();
     }
 
@@ -63,6 +62,11 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
         jLabel2.setText("Seleccionar Alumnos");
 
         jbSalirNotas.setText("Salir");
+        jbSalirNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirNotasActionPerformed(evt);
+            }
+        });
 
         jtNotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -79,6 +83,11 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(jtNotas);
 
         jbGuardarNotas.setText("Guardar");
+        jbGuardarNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarNotasActionPerformed(evt);
+            }
+        });
 
         jcbAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,19 +144,34 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
     private void jcbAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAlumnosActionPerformed
         // borrarfilas()
         borrarFilas();
-        Alumno alumno= (Alumno) jcbAlumnos.getModel().getSelectedItem(); //queda seleccionado el objeto alumno
-                
-        //listaMaterias=inscData.obtenerMateriasCursadas(alumno.getIdAlumno());
-        listaInscr=inscData.obtenerInscripcionesPorAlumno(alumno.getIdAlumno());
-       
-        for (Inscripcion i : listaInscr) {
+
+        Alumno alumno = (Alumno) jcbAlumnos.getModel().getSelectedItem();
+        inscripciones = inscData.obtenerInscripcionesPorAlumno(alumno.getIdAlumno());
+
+        for (Inscripcion insc : inscripciones) {
             tNotas.addRow(new Object[]{
-                i.getMateria(),
-                i.getMateria().getNombre(),
-                i.getNota(),});
+                insc.getIdInscripcion(),
+                insc.getMateria().getNombre(),
+                insc.getNota(),});
         }
-        
     }//GEN-LAST:event_jcbAlumnosActionPerformed
+
+    private void jbGuardarNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarNotasActionPerformed
+        int idInsc = (int) jtNotas.getValueAt(jtNotas.getSelectedRow(), 0);
+        Inscripcion insc = inscData.obtenerInscripcion(idInsc);
+
+        int fila = jtNotas.getSelectedRow();
+
+        int idAlumno = insc.getAlumno().getIdAlumno();
+        int idMateria = insc.getMateria().getIdMateria();
+        double nota = Double.parseDouble(this.jtNotas.getValueAt(fila, 2).toString());
+
+        inscData.actualizarNota(idAlumno, idMateria, nota);
+    }//GEN-LAST:event_jbGuardarNotasActionPerformed
+
+    private void jbSalirNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirNotasActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jbSalirNotasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -160,29 +184,27 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
     private javax.swing.JTable jtNotas;
     // End of variables declaration//GEN-END:variables
 
-    private void Cabecera() {
+    private void cabecera() {
         tNotas.addColumn("Codigo");
         tNotas.addColumn("Materia");
         tNotas.addColumn("Nota");
         jtNotas.setModel(tNotas);
-        
+
     }
-    
-    private void armarComboBox(){
-        listaAlumnos=aluData.listarAlumnos();
-        
-        for (int i = 0; i < listaAlumnos.size(); i++) {
-            jcbAlumnos.addItem(listaAlumnos.get(i));
+
+    private void armarComboBox() {
+        alumnos = aluData.listarAlumnos();
+
+        for (Alumno alumno : alumnos) {
+            jcbAlumnos.addItem(alumno);
         }
-            
-        }
-    
-    private void borrarFilas(){
-        int f=jtNotas.getRowCount() -1;
-        
-        for ( ; f >= 0; f--) {
+    }
+
+    private void borrarFilas() {
+        int f = jtNotas.getRowCount() - 1;
+
+        for (; f >= 0; f--) {
             tNotas.removeRow(f);
         }
     }
-    }
-
+}

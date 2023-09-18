@@ -39,7 +39,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         jbGuardarMateria = new javax.swing.JButton();
         jbSalirMateria = new javax.swing.JButton();
 
-        jLabel1.setText("Codigo: ");
+        jLabel1.setText("ID: ");
 
         jLabel2.setText("Nombre");
 
@@ -99,12 +99,11 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
                 .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel4)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel1))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -232,16 +231,11 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         int id= Integer.parseInt(jtCodigo.getText());
         String nombre=jtNombre.getText();
         int anio=Integer.parseInt(jtAnio.getText());
-        boolean estado=jrEstadoMateria.isEnabled();
+        boolean estado=jrEstadoMateria.isSelected();
         
         Materia materia=new Materia(id,anio, nombre, estado);
         materiaData.modificarMateria(materia);
     }//GEN-LAST:event_jbModificarActionPerformed
-
-    
-
-
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_buscar;
