@@ -132,6 +132,12 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         ));
         jScrollPane3.setViewportView(jtInscripcion);
 
+        jcAlumnoSeleccionado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcAlumnoSeleccionadoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -226,6 +232,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
             insc.setMateria(mate);
 
             ID.guardarInscripcion(insc);
+            
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_jbInscribirActionPerformed
@@ -271,6 +278,13 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
 
         }
     }//GEN-LAST:event_jrMateriasNoInscriptasActionPerformed
+
+    private void jcAlumnoSeleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcAlumnoSeleccionadoActionPerformed
+        // TODO add your handling code here:
+        buttonGroup1.clearSelection();
+        borrarFilas();
+        
+    }//GEN-LAST:event_jcAlumnoSeleccionadoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
