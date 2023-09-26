@@ -1,11 +1,3 @@
-/*
-tNotas.addTableModelListener(e -> {
-            if (e.getType() == TableModelEvent.UPDATE && e.getColumn() == 0) {
-                int fModif = e.getFirstRow();
-                notaActualiz = (String) tableModel.getValueAt(filaModificada, 0);
-            }
-        });
- */
 package universidadulp.vistas;
 
 import javax.swing.*;
@@ -46,8 +38,6 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
     
     };
 
-  
-   
     
     public ManipulacionNotas() {
         initComponents();
@@ -78,11 +68,6 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
         jLabel2.setText("Seleccionar Alumnos");
 
         jbSalirNotas.setText("Salir");
-        jbSalirNotas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSalirNotasActionPerformed(evt);
-            }
-        });
 
         jtNotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -176,7 +161,7 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
     private void jbGuardarNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarNotasActionPerformed
 
         int f= jtNotas.getSelectedRow();
-        Double nota=Double.parseDouble(jtNotas.getValueAt(f, 2).toString());
+        double nota=Double.parseDouble(jtNotas.getValueAt(f, 2).toString());
         
         int id=(Integer)tNotas.getValueAt(f, 0);
         
@@ -193,11 +178,6 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_jbGuardarNotasActionPerformed
-
-    private void jbSalirNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirNotasActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_jbSalirNotasActionPerformed
 
     
      
