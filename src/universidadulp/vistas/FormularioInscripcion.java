@@ -233,6 +233,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
             insc.setMateria(mate);
 
             ID.guardarInscripcion(insc);
+            
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_jbInscribirActionPerformed
@@ -281,7 +282,9 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
 
     private void jcAlumnoSeleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcAlumnoSeleccionadoActionPerformed
         // TODO add your handling code here:
+        buttonGroup1.clearSelection();
         borrarFilas();
+        
     }//GEN-LAST:event_jcAlumnoSeleccionadoActionPerformed
 
 
