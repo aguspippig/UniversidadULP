@@ -68,6 +68,11 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
         jLabel2.setText("Seleccionar Alumnos");
 
         jbSalirNotas.setText("Salir");
+        jbSalirNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirNotasActionPerformed(evt);
+            }
+        });
 
         jtNotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -178,6 +183,11 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_jbGuardarNotasActionPerformed
+
+    private void jbSalirNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirNotasActionPerformed
+        // TODO add your handling code here:
+          this.dispose();
+    }//GEN-LAST:event_jbSalirNotasActionPerformed
 
     
      

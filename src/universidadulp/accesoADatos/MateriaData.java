@@ -61,18 +61,17 @@ public class MateriaData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia");
         }
     }
-
+    //fe de erratas: eliminarMateria. eliminado lógico
     public void eliminarAlmuno(int id) {
 
-        // String sql = "UPDATE materia SET estado = 0 WHERE idMateria = ?";
         try {
             String sql = "UPDATE materia SET estado = 0 WHERE idMateria = ?";
+            
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             int exito = ps.executeUpdate();
-            //  if (exito==1) 
-            //  JOptionPane.showMessageDialog(null, "Alumno eliminado!");
-
+           
+        ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia." + ex);
         }
@@ -87,6 +86,7 @@ public class MateriaData {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
+            
             if (rs.next()) {
 
                 materia = new Materia();
@@ -116,6 +116,7 @@ public class MateriaData {
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
+            
             while (rs.next()) {
 
                 materia = new Materia();

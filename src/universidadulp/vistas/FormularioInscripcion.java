@@ -23,6 +23,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     private List<Materia> materias = new ArrayList<>();
     private List<Alumno> alumnos;
     private MateriaData MD = new MateriaData();
+    
     private DefaultTableModel jInscripcion = new DefaultTableModel() {
         public boolean isCellEditable(int f, int c) {
             return false;

@@ -166,6 +166,7 @@ public class AlumnoData {
             }else{
                 JOptionPane.showMessageDialog(null,"El alumno no existe.");
             }
+            ps.close();
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Alumno. "+ex.getMessage());
         }
@@ -180,10 +181,13 @@ public class AlumnoData {
             ps.setInt(1, id);
             
             int registro = ps.executeUpdate();
-            
-            /*if(registro == 1){
-                JOptionPane.showMessageDialog(null,"Se elimino el alumno correctamente.");
-            }*/
+
+            if(registro == 1){
+                JOptionPane.showMessageDialog(null,"Alumno eliminado.");
+            }else{
+                JOptionPane.showMessageDialog(null,"El alumno no existe.");
+            }
+            ps.close();
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Alumno. "+ex.getMessage());
         }

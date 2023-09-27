@@ -219,12 +219,12 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
-        // TODO add your handling code here:
+        // Sale del formulario
         this.dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void JbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbEliminarActionPerformed
-        // TODO add your handling code here:
+        // Eliminado lógico del alumno, setea estado a =0;
         int id = Integer.valueOf(jtID.getText());
 
         int respuesta = JOptionPane.showConfirmDialog(this, "¿Desea dar de baja al alumno con ID " + jtID.getText() + "?", "Confirme", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -238,7 +238,7 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_JbEliminarActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
-        // TODO add your handling code here:
+        // Agrega nuevo alumno
 
         int dni = Integer.valueOf(jtDocumento.getText());
         String ape = jtApellido.getText();
@@ -253,7 +253,7 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
-        // TODO add your handling code here:
+        // Busca alumno por DNI
         int dni = Integer.valueOf(jtDocumento.getText());
 
         Alumno alu = aluData.buscarAlumnoPorDni(dni);
@@ -268,7 +268,7 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jbBuscarIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarIdActionPerformed
-        // TODO add your handling code here:
+        // Busca alumno por idAlumno
         int id = Integer.valueOf(jtID.getText());
 
         Alumno alu = aluData.buscarAlumno(id);
@@ -283,7 +283,7 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbBuscarIdActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
-        // TODO add your handling code here:
+        // Actualiza los datos del alumno en la base de datos
         int id = Integer.valueOf(jtID.getText());
         int dni = Integer.valueOf(jtDocumento.getText());
         String ape = jtApellido.getText();

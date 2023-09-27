@@ -179,7 +179,7 @@ public class InscripcionData {
         List<Materia> materias = new ArrayList<Materia>();
 
         try {
-            String sql = "SELECT idMateria, nombre, año FROM materia WHERE idMateria NOT IN (SELECT idMateria FROM inscripcion WHERE idAlumno = 4)";;
+            String sql = "SELECT idMateria, nombre, año FROM materia WHERE idMateria NOT IN (SELECT idMateria FROM inscripcion WHERE idAlumno = ?)";
 
             PreparedStatement ps = con.prepareStatement(sql);
 
