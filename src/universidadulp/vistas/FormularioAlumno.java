@@ -17,7 +17,7 @@ import universidadulp.entidades.Alumno;
  * @author marti
  */
 public class FormularioAlumno extends javax.swing.JInternalFrame {
-
+    
     private AlumnoData aluData = new AlumnoData();
 
     /**
@@ -226,9 +226,9 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
     private void JbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbEliminarActionPerformed
         // Eliminado lógico del alumno, setea estado a =0;
         int id = Integer.valueOf(jtID.getText());
-
+        
         int respuesta = JOptionPane.showConfirmDialog(this, "¿Desea dar de baja al alumno con ID " + jtID.getText() + "?", "Confirme", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-
+        
         if (respuesta == JOptionPane.YES_OPTION) {
             aluData.eliminarAlumno(id);
             JOptionPane.showMessageDialog(this, "Se dio de baja al alumno correctamente.");
@@ -239,30 +239,39 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
         // Agrega nuevo alumno
-
-        int dni = Integer.valueOf(jtDocumento.getText());
-        String ape = jtApellido.getText();
-        String nom = jtNombre.getText();
-        Date fechaDate = jdcNacimiento.getDate();
-
-        LocalDate fechaLocal = fechaDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
-        Alumno alu = new Alumno(dni, ape, nom, fechaLocal, true);
-
-        aluData.guardarAlumno(alu);
+        if (jtID.getText().equals("")) {
+            int dni = Integer.valueOf(jtDocumento.getText());
+            String ape = jtApellido.getText();
+            String nom = jtNombre.getText();
+            Date fechaDate = jdcNacimiento.getDate();
+            
+            LocalDate fechaLocal = fechaDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            
+            Alumno alu = new Alumno(dni, ape, nom, fechaLocal, true);
+            
+            aluData.guardarAlumno(alu);
+            
+            Alumno alu2 = aluData.buscarAlumnoPorDni(dni);
+            
+            JOptionPane.showMessageDialog(this,"El ID del nuevo alumno es "+alu2.getIdAlumno());
+        } else {
+            JOptionPane.showMessageDialog(this, "El campo ID debe estar vacio.");
+            jtID.setText("");
+        }
+        
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         // Busca alumno por DNI
         int dni = Integer.valueOf(jtDocumento.getText());
-
+        
         Alumno alu = aluData.buscarAlumnoPorDni(dni);
-
+        
         jtID.setText(alu.getIdAlumno() + "");
         jtApellido.setText(alu.getApellido());
         jtNombre.setText(alu.getNombre());
         jrEstado.setSelected(alu.isEstado());
-
+        
         Date fecha = Date.from(alu.getFechaNacimiento().atStartOfDay(ZoneId.systemDefault()).toInstant());
         jdcNacimiento.setDate(fecha);
     }//GEN-LAST:event_jbBuscarActionPerformed
@@ -270,14 +279,14 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
     private void jbBuscarIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarIdActionPerformed
         // Busca alumno por idAlumno
         int id = Integer.valueOf(jtID.getText());
-
+        
         Alumno alu = aluData.buscarAlumno(id);
-
+        
         jtDocumento.setText(alu.getDni() + "");
         jtApellido.setText(alu.getApellido());
         jtNombre.setText(alu.getNombre());
         jrEstado.setSelected(alu.isEstado());
-
+        
         Date fecha = Date.from(alu.getFechaNacimiento().atStartOfDay(ZoneId.systemDefault()).toInstant());
         jdcNacimiento.setDate(fecha);
     }//GEN-LAST:event_jbBuscarIdActionPerformed
@@ -290,11 +299,11 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         String nom = jtNombre.getText();
         boolean estado = jrEstado.isSelected();
         Date fechaDate = jdcNacimiento.getDate();
-
+        
         LocalDate fechaLocal = fechaDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
+        
         Alumno alumno = new Alumno(id, dni, ape, nom, fechaLocal, estado);
-
+        
         aluData.modificarAlumno(alumno);
     }//GEN-LAST:event_jbModificarActionPerformed
 

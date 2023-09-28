@@ -54,7 +54,6 @@ public class MateriaData {
             ps.setInt(4, materia.getIdMateria());
             int exito = ps.executeUpdate();
             if (exito == 1) {
-
                 JOptionPane.showMessageDialog(null, "Materia modificada");
             }
         } catch (SQLException ex) {

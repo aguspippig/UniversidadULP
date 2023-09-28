@@ -198,7 +198,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         // int cod = Integer.parseInt(jtCodigo.getText());
         String materia = jtNombre.getText();
         int anio = Integer.parseInt(jtAnio.getText());
-        boolean estado = jrEstadoMateria.isEnabled();
+        boolean estado = jrEstadoMateria.isSelected();
 
         Materia mat = new Materia(anio, materia, estado);
 
@@ -250,14 +250,15 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
 
+        int id = Integer.parseInt(jtCodigo.getText());
         String nombre = jtNombre.getText();
         int anio = Integer.parseInt(jtAnio.getText());
-        boolean estado = jrEstadoMateria.isEnabled();
+        boolean estado = jrEstadoMateria.isSelected();
 
         if ("".equals(nombre)) {
-            JOptionPane.showMessageDialog(this, "complete todo los campos");
+            JOptionPane.showMessageDialog(this, "Complete todo los campos.");
         } else {
-            Materia materia = new Materia(anio, nombre, estado);
+            Materia materia = new Materia(id, anio, nombre, estado);
             materiaData.modificarMateria(materia);
         }
 
