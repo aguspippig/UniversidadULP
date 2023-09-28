@@ -1,5 +1,5 @@
-
 package universidadulp.vistas;
+
 import universidadulp.accesoADatos.MateriaData;
 
 import java.sql.Connection;
@@ -8,14 +8,12 @@ import universidadulp.accesoADatos.Conexion;
 import universidadulp.accesoADatos.MateriaData;
 import universidadulp.entidades.Materia;
 
-
 public class FormularioMateria extends javax.swing.JInternalFrame {
 
     private MateriaData materiaData;
     private Connection con;
 
     public FormularioMateria() {
-
 
         initComponents();
 
@@ -184,7 +182,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_jbSalirMateriaActionPerformed
 
-    private void jbBuscarMateriaActionPerformed(java.awt.event.ActionEvent evt) {                                                
+    private void jbBuscarMateriaActionPerformed(java.awt.event.ActionEvent evt) {
         // NO FUNCIONA
         int id = Integer.parseInt(jtCodigo.getText());
         Materia mat = materiaData.buscarMateria(id);
@@ -193,29 +191,29 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         jtAnio.setText(mat.getAnioMateria() + "");
         jrEstadoMateria.setSelected(mat.isEstado());
 
-    }                                               
+    }
 
     private void jbGuardarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarMateriaActionPerformed
 
-       // int cod = Integer.parseInt(jtCodigo.getText());
+        // int cod = Integer.parseInt(jtCodigo.getText());
         String materia = jtNombre.getText();
         int anio = Integer.parseInt(jtAnio.getText());
         boolean estado = jrEstadoMateria.isEnabled();
-        
+
         Materia mat = new Materia(anio, materia, estado);
-        
-        if("".equals(materia )){
+
+        if ("".equals(materia)) {
             JOptionPane.showMessageDialog(this, "Los campos no debes estar vacios");
-        }else{
-            
-        materiaData.guardarMateria(mat);
-        
+        } else {
+
+            materiaData.guardarMateria(mat);
+
     }//GEN-LAST:event_jbGuardarMateriaActionPerformed
     }
     private void jbEliminarMateriiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarMateriiaActionPerformed
 
         int id = Integer.valueOf(jtCodigo.getText());
-        int respuesta = JOptionPane.showConfirmDialog(this, "¿Desea borrar Materia: " + jtCodigo.getText() +  "?", "Confirme", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int respuesta = JOptionPane.showConfirmDialog(this, "¿Desea borrar Materia: " + jtCodigo.getText() + "?", "Confirme", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
         if (respuesta == JOptionPane.YES_OPTION) {
             materiaData.eliminarAlmuno(id);
@@ -223,57 +221,51 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
             jtCodigo.setText("");
             jtNombre.setText("");
             jtAnio.setText("");
-            
+
         } else if (respuesta == JOptionPane.NO_OPTION) {
             this.dispose();
 
     }//GEN-LAST:event_jbEliminarMateriiaActionPerformed
     }
     private void jButton_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_buscarActionPerformed
-      try {
-        int id = Integer.parseInt(jtCodigo.getText());
-        
-        Materia mat = materiaData.buscarMateria(id);
-        
+        try {
+            int id = Integer.parseInt(jtCodigo.getText());
+
+            Materia mat = materiaData.buscarMateria(id);
+
             jtCodigo.setText(mat.getIdMateria() + "");
             jtNombre.setText(mat.getNombre());
             jtAnio.setText(mat.getAnioMateria() + "");
             jrEstadoMateria.setSelected(mat.isEstado());
-        } catch  (NullPointerException ex) {
+        } catch (NullPointerException ex) {
 
             JOptionPane.showMessageDialog(this, "Debe ingresar un numero");
             jtCodigo.setText("");
             jtCodigo.requestFocus();
-        } catch (NumberFormatException e){
-            JOptionPane.showMessageDialog(null,"Ingrese un numero");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Ingrese un numero");
         }
-    
+
     }//GEN-LAST:event_jButton_buscarActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
-     
-        
-        int id= Integer.parseInt(jtCodigo.getText());
-        String nombre=jtNombre.getText();
-        int anio=Integer.parseInt(jtAnio.getText());
-        boolean estado=jrEstadoMateria.isEnabled();
-        
+
+        String nombre = jtNombre.getText();
+        int anio = Integer.parseInt(jtAnio.getText());
+        boolean estado = jrEstadoMateria.isEnabled();
+
         if ("".equals(nombre)) {
             JOptionPane.showMessageDialog(this, "complete todo los campos");
         } else {
-            Materia materia = new Materia(id, anio, nombre, estado);
+            Materia materia = new Materia(anio, nombre, estado);
             materiaData.modificarMateria(materia);
         }
-      
+
     }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtCodigoActionPerformed
-
-    
-
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
