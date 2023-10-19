@@ -54,11 +54,11 @@ public class universidadVistas extends javax.swing.JFrame {
         Escritorio.setLayout(EscritorioLayout);
         EscritorioLayout.setHorizontalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 787, Short.MAX_VALUE)
+            .addGap(0, 758, Short.MAX_VALUE)
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 621, Short.MAX_VALUE)
+            .addGap(0, 452, Short.MAX_VALUE)
         );
 
         jmAlumno.setText("Alumno");
@@ -123,11 +123,6 @@ public class universidadVistas extends javax.swing.JFrame {
         jMenuBar1.add(jmConsultas);
 
         jmSalir.setText("Salir");
-        jmSalir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jmSalirMouseClicked(evt);
-            }
-        });
         jmSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmSalirActionPerformed(evt);
@@ -187,7 +182,7 @@ public class universidadVistas extends javax.swing.JFrame {
 
     private void jmSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSalirActionPerformed
         // TODO add your handling code here:
-        
+        this.dispose();
     }//GEN-LAST:event_jmSalirActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -207,11 +202,6 @@ public class universidadVistas extends javax.swing.JFrame {
         Escritorio.add(MNotas);
         Escritorio.moveToFront(MNotas);
     }//GEN-LAST:event_jmNotasActionPerformed
-
-    private void jmSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmSalirMouseClicked
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_jmSalirMouseClicked
 
     /**
      * @param args the command line arguments

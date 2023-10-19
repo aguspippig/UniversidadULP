@@ -1,16 +1,14 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package universidadulp.vistas;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-//
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import universidadulp.accesoADatos.AlumnoData;
-import universidadulp.accesoADatos.InscripcionData;
+import universidadulp.accesoADatos.*;
 import universidadulp.entidades.*;
 
 /**
@@ -20,13 +18,12 @@ import universidadulp.entidades.*;
 public class ManipulacionNotas extends javax.swing.JInternalFrame {
 
     private AlumnoData aluData = new AlumnoData();
+    private List<Alumno> alumnos = new ArrayList<>();
     private InscripcionData inscData = new InscripcionData();
-    private List<Alumno> listaAlumnos = new ArrayList<Alumno>();
-    private List<Materia> listaMaterias = new ArrayList<Materia>();
-    private List<Inscripcion> listaInscr = new ArrayList<Inscripcion>();
+    private List<Materia> materias = new ArrayList<>();
+    private List<Inscripcion> inscripciones = new ArrayList<>();
 
     private DefaultTableModel tNotas = new DefaultTableModel() {
-        @Override
         public boolean isCellEditable(int f, int c) {
             if (c == 2) {
                 return true;
@@ -34,13 +31,11 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
                 return false;
             }
         }
-        //   
-
     };
 
     public ManipulacionNotas() {
         initComponents();
-        Cabecera();
+        cabecera();
         armarComboBox();
     }
 
@@ -147,48 +142,34 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcbAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAlumnosActionPerformed
-
+        // borrarfilas()
         borrarFilas();
-        Alumno alumno = (Alumno) jcbAlumnos.getModel().getSelectedItem(); //queda seleccionado el objeto alumno
 
-        listaInscr = inscData.obtenerInscripcionesPorAlumno(alumno.getIdAlumno());
+        Alumno alumno = (Alumno) jcbAlumnos.getModel().getSelectedItem();
+        inscripciones = inscData.obtenerInscripcionesPorAlumno(alumno.getIdAlumno());
 
-        for (Inscripcion i : listaInscr) {
+        for (Inscripcion insc : inscripciones) {
             tNotas.addRow(new Object[]{
-                i.getIdInscripcion(),
-                i.getMateria().getNombre(),
-                i.getNota(),});
+                insc.getIdInscripcion(),
+                insc.getMateria().getNombre(),
+                insc.getNota(),});
         }
-
     }//GEN-LAST:event_jcbAlumnosActionPerformed
 
     private void jbGuardarNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarNotasActionPerformed
+        int idInsc = (int) jtNotas.getValueAt(jtNotas.getSelectedRow(), 0);
+        Inscripcion insc = inscData.obtenerInscripcion(idInsc);
 
-        try {
-            int f = jtNotas.getSelectedRow();
-            double nota = Double.parseDouble(jtNotas.getValueAt(f, 2).toString());
+        int fila = jtNotas.getSelectedRow();
 
-            int id = (Integer) tNotas.getValueAt(f, 0);
+        int idAlumno = insc.getAlumno().getIdAlumno();
+        int idMateria = insc.getMateria().getIdMateria();
+        double nota = Double.parseDouble(this.jtNotas.getValueAt(fila, 2).toString());
 
-            for (Inscripcion i : listaInscr) {
-
-                if (id == i.getIdInscripcion()) {
-                    int idAlu, idMat;
-                    idAlu = i.getAlumno().getIdAlumno();
-                    idMat = i.getMateria().getIdMateria();
-
-                    inscData.actualizarNota(idAlu, idMat, nota);
-                }
-            }
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "El campo nota deber ser llenado con un numero.");
-        }
-
-
+        inscData.actualizarNota(idAlumno, idMateria, nota);
     }//GEN-LAST:event_jbGuardarNotasActionPerformed
 
     private void jbSalirNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirNotasActionPerformed
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jbSalirNotasActionPerformed
 
@@ -203,7 +184,7 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
     private javax.swing.JTable jtNotas;
     // End of variables declaration//GEN-END:variables
 
-    private void Cabecera() {
+    private void cabecera() {
         tNotas.addColumn("Codigo");
         tNotas.addColumn("Materia");
         tNotas.addColumn("Nota");
@@ -212,12 +193,11 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
     }
 
     private void armarComboBox() {
-        listaAlumnos = aluData.listarAlumnos();
+        alumnos = aluData.listarAlumnos();
 
-        for (int i = 0; i < listaAlumnos.size(); i++) {
-            jcbAlumnos.addItem(listaAlumnos.get(i));
+        for (Alumno alumno : alumnos) {
+            jcbAlumnos.addItem(alumno);
         }
-
     }
 
     private void borrarFilas() {
@@ -227,5 +207,4 @@ public class ManipulacionNotas extends javax.swing.JInternalFrame {
             tNotas.removeRow(f);
         }
     }
-
-}//finclase
+}
